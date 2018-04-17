@@ -1,0 +1,47 @@
+// Does imports from Bootstrap and the base twerk theme.
+
+
+
+
+
+// Put your own mixins in this file
+@import 'lib/mixins';
+
+// Import assets
+@import 'assets/pageelements';
+
+// Basic layout styling
+@import 'base/layout';
+@import 'base/header';
+@import 'base/footer';
+@import 'base/navigation';
+@import 'base/sidebars';
+@import 'base/tabs';
+
+
+///
+/// Base styles
+///
+/// WARNING: Do NOT include this file in other .scss files. It WILL duplicate output
+///
+
+// Import config.
+@import 'config/variables';
+
+// Bootstrap CSS-generating output
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/print';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/code';
+
+// Font Awesome icons
+$fa-font-path: '~font-awesome/fonts/';
+@import '~font-awesome/scss/font-awesome';
+
+// Custom CSS-generating output
+@import 'printing/type';
+@import 'printing/forms';
+@import 'printing/tables';
+@import 'printing/transitions';
+@import 'printing/html-elements';

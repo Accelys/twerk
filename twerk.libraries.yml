@@ -1,0 +1,7 @@
+base:
+  version: VERSION
+  css:
+    theme:
+      dist/twerk.css: {}
+  js:
+    dist/twerk.js: {}

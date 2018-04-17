@@ -1,0 +1,7 @@
+main:
+  version: VERSION
+  css:
+    base:
+      dist/css/TWERKSUBTHEME.css: {}
+  js:
+    dist/js/TWERKSUBTHEME.js: {}

@@ -1,0 +1,32 @@
+{
+  "name": "TWERKSUBTHEME",
+  "version": "8.0.0",
+  "description": "TWERKSUBTHEME, a sub-theme of Twerk",
+  "author": {
+    "name": "Accelys",
+    "url": "https://github.com/accelys/"
+  },
+  "main": "gulpfile.js",
+  "license": "GPL-2.0",
+  "scripts": {
+    "start": "gulp",
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.3.0",
+    "del": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "gulp": "^4.0.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.9",
+    "stylelint": "^9.2.0",
+    "stylelint-scss": "^3.0.0",
+  }
+}

@@ -1,0 +1,6 @@
+# Compiled files
+dist/
+
+# Dependencies
+node_modules
+vendor

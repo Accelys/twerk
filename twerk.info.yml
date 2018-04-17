@@ -1,0 +1,25 @@
+name: Twerk
+type: theme
+description: 'A parent theme to shake the project's booty, based on Classy, starter child theme included'
+core: 8.x
+base theme: classy
+
+libraries:
+  - twerk/base
+  
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  highlighted: Highlighted
+  messages: 'Messages'
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_fourth: 'Footer fourth'
+  block_store: Block store
+

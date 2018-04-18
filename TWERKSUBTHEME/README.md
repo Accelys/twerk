@@ -1,4 +1,4 @@
-# BUILDING A THEME WITH FORTY TWO
+# Building a theme with Twerk
 
 The Twerk theme is designed to be extended by a sub-theme. You shouldn't modify
 any of the CSS or PHP files in the `twerk/` folder ; instead create a
@@ -11,9 +11,9 @@ https://www.drupal.org/docs/8/theming-drupal-8/drupal-8-theme-folder-structure.
 
 So it is important to install the Twerk base theme in the folder `/themes/contrib/twerk`
 
-## Setup the location for your new sub-theme.  
+## Setup the location for your new sub-theme.
 
-  Copy the TWERKSUBTHEME folder out of the `twerk/` folder and rename it to be your new sub-theme.  
+  Copy the TWERKSUBTHEME folder out of the `twerk/` folder and rename it to be your new sub-theme.
   **IMPORTANT:** The name of your sub-theme must start with an *alphabetic character* and can only
   contain *lowercase letters, numbers and underscores*.
 
@@ -84,6 +84,5 @@ So it is important to install the Twerk base theme in the folder `/themes/contri
 
   You should use Gulp in this sub-theme. Just do `npm install` in the theme's folder
   for installing and use `gulp` for running the watcher. We've added some nice features:
-  * Sass compiling, including source maps and autoprefixer;
-  * JS Hint, and uglify;
-  
+  * SASS compiling, including source maps and autoprefixer;
+  * ES Lint and uglify;

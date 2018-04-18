@@ -1,0 +1,13 @@
+{
+  "name": "drupal/twerk",
+  "type": "drupal-theme",
+  "description": "A parent theme to shake the project's booty.",
+  "keywords": ["Drupal"],
+  "license": "Apache Licence-2.0",
+  "homepage": "https://github.com/Accelys/twerk",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://github.com/Accelys/twerk/issues",
+    "source": "https://github.com/Accelys/twerk"
+  }
+}

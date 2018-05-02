@@ -8,15 +8,15 @@
 @import 'lib/mixins';
 
 // Import assets
-@import 'assets/pageelements';
+// @import 'assets/pageelements';
 
 // Basic layout styling
-@import 'base/layout';
-@import 'base/header';
-@import 'base/footer';
-@import 'base/navigation';
-@import 'base/sidebars';
-@import 'base/tabs';
+// @import 'base/layout';
+// @import 'base/header';
+// @import 'base/footer';
+// @import 'base/navigation';
+// @import 'base/sidebars';
+// @import 'base/tabs';
 
 
 ///
@@ -29,19 +29,19 @@
 @import 'config/variables';
 
 // Bootstrap CSS-generating output
-@import '~bootstrap/scss/root';
-@import '~bootstrap/scss/print';
-@import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/utilities';
-@import '~bootstrap/scss/code';
+@import '../node_modules/bootstrap/scss/root';
+@import '../node_modules/bootstrap/scss/print';
+@import '../node_modules/bootstrap/scss/reboot';
+@import '../node_modules/bootstrap/scss/utilities';
+@import '../node_modules/bootstrap/scss/code';
 
 // Font Awesome icons
-$fa-font-path: '~font-awesome/fonts/';
-@import '~font-awesome/scss/font-awesome';
+// $fa-font-path: '~font-awesome/fonts/';
+@import '../node_modules/font-awesome/scss/font-awesome';
 
 // Custom CSS-generating output
-@import 'printing/type';
-@import 'printing/forms';
-@import 'printing/tables';
-@import 'printing/transitions';
-@import 'printing/html-elements';
+// @import 'printing/type';
+// @import 'printing/forms';
+// @import 'printing/tables';
+// @import 'printing/transitions';
+// @import 'printing/html-elements';

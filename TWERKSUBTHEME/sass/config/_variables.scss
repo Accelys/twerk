@@ -31,15 +31,15 @@ $spacing: (
 
 // This is a good place to globally override bootstrap variables that aren't
 // just overridden in a component later on.
-$font-family-sans-serif: "My custom sans-serif font", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-sans-serif: Ubuntu, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 // Bootstrap non-printing tools
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
 
 // import anything else non-printing that may depend on variables in this file!
 // @import 'non-printing/project-specific-mixins'
 
 // Custom additional fonts
-$font-family-title: "My custom font for headings", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-title: Ubuntu, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

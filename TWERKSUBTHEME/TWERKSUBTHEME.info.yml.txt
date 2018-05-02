@@ -1,6 +1,6 @@
 name: Twerk sub-theme
 type: theme
-description: 'A Twerk sub-theme to shake the project's booty'
+description: "A Twerk sub-theme to shake the project's booty"
 core: 8.x
 base theme: twerk
 
@@ -22,4 +22,3 @@ regions:
   footer_third: 'Footer third'
   footer_fourth: 'Footer fourth'
   block_store: Block store
-

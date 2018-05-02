@@ -3,37 +3,37 @@
  * Gulpfile for fortytwo.
  */
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var del = require('del');
 var autoprefixer = require('autoprefixer');
+var cssMqpacker = require('css-mqpacker');
+var del = require('del');
+var eslint = require('eslint');
+var eslintConfigAirbnb = require('eslint-config-airbnb');
+var gulp = require('gulp');
+var gulpPostcss = require('gulp-postcss');
+var gulpSass = require('gulp-sass');
+var gulpSourcemaps = require('gulp-sourcemaps');
+var gulpUglify = require('gulp-uglify');
+var gulpUglifycss = require('gulp-uglifycss');
+var pump = require('pump');
+var stylelint = require('stylelint');
+var stylelintScss = require('stylelint-scss');
 
-
-/**
- * @task eslint
- * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code
- * abort calling task on error
- */
-// @TODO change js task (from fortytwo) to use eslint instead of jscs
 /**
  * @task js
- *
+ * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code
+ * abort calling task on error
+ * UglifyJS is a JavaScript parser, minifier, compressor and beautifier toolkit.
  */
-gulp.task('js', function () {
-  var stream = gulp.src(['static/js/**/*.js'])
-  .pipe($.jscs({fix: true}))
-  .pipe($.jscs.reporter())
-  .pipe(gulp.dest('./static/js'))
-  .on('error', $.util.log);
-
-  if (config.enable_livereload) {
-    stream.pipe($.livereload());
-  }
-
-  return stream;
-});
-
-
+ gulp.task('js', function() {
+   gulp.src('js/**/*.js')
+     .pipe(sourcemaps.init())
+       .pipe(eslint())
+       .pipe(eslint.format())
+       .pipe(eslint.failOnError())
+       .pipe(gulpUglify())
+     .pipe(sourcemaps.write())
+     .pipe(gulp.dest('dist/js'));
+ });
 
 
 /**
@@ -43,7 +43,7 @@ gulp.task('js', function () {
 // @TODO change sass-lint task (from fortytwo) to a `stylelint` task
 gulp.task('sass-lint', function () {
   return gulp.src('sass/**/*.s+(a|c)ss')
-  .pipe($.sassLint({configFile: '.sass-lint.yml'}))
+  .pipe($.sassLint({configFile: '.sass-lint.yml'})) // @TODO
   .pipe($.sassLint.format())
   .pipe($.sassLint.failOnError());
 });

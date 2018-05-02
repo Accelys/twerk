@@ -19,17 +19,24 @@ var stylelint = require('stylelint');
 var stylelintScss = require('stylelint-scss');
 
 /**
- * @task js
+ * @task js-lint
  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code
  * abort calling task on error
- * UglifyJS is a JavaScript parser, minifier, compressor and beautifier toolkit.
  */
- gulp.task('js', function() {
-   gulp.src('js/**/*.js')
+ gulp.task('js-lint', function () {
+   return gulp.src('js/**/*.js')
+   .pipe(eslint())
+   .pipe(eslint.format())
+   .pipe(eslint.failOnError());
+ });
+
+ /**
+  * @task js
+  * UglifyJS is a JavaScript parser, minifier, compressor and beautifier toolkit.
+  */
+ gulp.task('js', ['js-lint'], function() {
+   return gulp.src('js/**/*.js')
      .pipe(sourcemaps.init())
-       .pipe(eslint())
-       .pipe(eslint.format())
-       .pipe(eslint.failOnError())
        .pipe(gulpUglify())
      .pipe(sourcemaps.write())
      .pipe(gulp.dest('dist/js'));
@@ -80,15 +87,16 @@ gulp.task('sass-compile', ['sass-lint'], function () {
  * Clean the dist folder.
  */
 gulp.task('clean', function () {
-  return del(['dist/css/*']);
+  return del(['dist/css/*', 'dist/js/*']);
 });
 
 /**
  * @task watch
  * Watch files and do stuff.
  */
-gulp.task('watch', ['clean', 'sass-compile'], function () {
+gulp.task('watch', ['clean', 'sass-compile', 'js'], function () {
   gulp.watch('sass/**/*.+(scss|sass)', ['sass-compile']);
+  gulp.watch('js/**/*.js', ['js']);
 });
 
 /**

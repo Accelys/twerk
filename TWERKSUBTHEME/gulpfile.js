@@ -33,7 +33,7 @@ var stylelint = require('gulp-stylelint');
 
 
 /**
- * @task js
+ * @task css
  * Sass lint + Sass compilation to CSS + add vendor prefixes + minify (refactor media queries + uglify)
  */
 gulp.task('css', function () {
@@ -42,12 +42,13 @@ gulp.task('css', function () {
     cssMqpacker()
   ];
   return gulp.src('sass/**/*.s+(a|c)ss')
-    .pipe(stylelint())
-    .pipe(sass())
-    .on('error', function (err) {
-      console.log(err);
-      this.emit('end');
-    })
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [
+        {formatter: 'string', console: true}
+      ]
+    }))
+    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.init())
     .pipe(postcss(plugins))
     .pipe(sourcemaps.write())

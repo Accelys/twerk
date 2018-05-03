@@ -1,9 +1,11 @@
 {
-  extends: ["eslint:recommended", "airbnb"],
-  env: {
-    browser: true
+  "extends": ["eslint:recommended", "airbnb"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jquery": true
   },
-  rules: {
-    no-console: 0
+  "rules": {
+    "no-console": 0
   }
 }

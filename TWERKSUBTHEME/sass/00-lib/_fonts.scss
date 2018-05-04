@@ -1,13 +1,9 @@
 // sass-lint:disable no-duplicate-properties, property-sort-order
 
-// Notice that the font family names are identical.
-// How does the browser know which one to take? Change the font-weight, just like
-// you would do with a real font. With the values set below you can also use
-// The keyword 'normal' is synonymous with '400', and 'bold' is synonymous with '700'
-// There is no keyword for the lightest version unfortunately
-//
-// Read more about it here:
-// http://www.metaltoad.com/blog/how-use-font-face-avoid-faux-italic-and-bold-browser-styles
+/*
+Refactor all fonts under common family names
+Mapping between numeric weight and name: https://developer.mozilla.org/en/docs/Web/CSS/font-weight
+*/
 
 @font-face {
   font-family: 'Ubuntu';

@@ -5,32 +5,11 @@
 /// This kind of config is often required prior to importing any libraries (ie Bootstrap Sass), and
 /// does not produce any CSS, just variables and maps.
 ///
-/// All .scss files NEED TO INCLUDE this file as the top import to ensure consistent settings.
-/// Twerk does not glob Sass! Because there is no printing CSS output in this file.
-///
-/// @example
-/// ```scss
-/// @import '../../sass/config/_variables.scss';
-/// ```
-/// This guarantees every component is styled with the same presets.
-///
 
-// Twerk non-printing tools
-@import '../../../../contrib/twerk/sass/mixins';
-@import '../../../../contrib/twerk/sass/reset';
-// Sub-theme non-printing tools
-@import 'colors';
-@import '../lib/fonts';
-
-// (Other non-printing .scss), ie font families, spacing, etc
-$spacing: (
-  s: 10px,
-  m: 25px,
-  l: 50px,
-);
-
+// Custom non-printing .scss, ie font families, spacing, etc
 // This is a good place to globally override bootstrap variables that aren't
 // just overridden in a component later on.
+
 $font-family-sans-serif: Ubuntu, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 // Bootstrap non-printing tools

@@ -1,0 +1,8 @@
+// Bootstrap override variables go here.
+// See available vars in ../node_modules/bootstrap/scss/_variables.scss, i.e.
+//$enable-transitions
+//$transition-fade
+//$btn-transition
+@import '../node_modules/bootstrap/scss/transitions';
+
+// Custom transitions rules go here

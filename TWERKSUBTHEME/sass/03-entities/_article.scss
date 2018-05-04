@@ -1,0 +1,12 @@
+// Example to illustrate entity styling using classes provided by Drupal core Classy theme
+article.node--type-article.node--view-mode-full {
+  .field--name-body {
+    text-align: justify;
+  }
+}
+
+// Display article teaser as a Bootstrap card
+// Custom general cards styles should be defined in `02-base/cards`
+article.node--type-article.node--view-mode-teaser {
+  @extend .card;
+}

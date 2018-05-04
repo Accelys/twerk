@@ -1,0 +1,17 @@
+// To change default bootstrap card variables,
+// copy from ../node_modules/bootstrap/scss/variables to here
+
+$btn-border-radius: 0;
+@import "../node_modules/bootstrap/scss/buttons";
+
+// Add custom code here
+.btn {
+  font-size: .9rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+input[type=submit] {
+  @extend .btn;
+  @extend .btn-secondary;
+}

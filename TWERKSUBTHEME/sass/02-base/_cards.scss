@@ -1,0 +1,13 @@
+///
+/// Allow use of .card class in your templates
+///
+/// Add here the general card styles and use specific SCSS files for specificities
+
+// To change default bootstrap card variables, SEE ../node_modules/bootstrap/scss/variables
+// Add bootstrap variables here
+$card-border-radius: 0;
+$card-columns-gap: 1.5rem;
+
+@import '../node_modules/bootstrap/scss/card';
+
+// Add custom code here

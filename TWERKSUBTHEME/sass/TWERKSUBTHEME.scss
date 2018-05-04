@@ -1,32 +1,17 @@
-// Does imports from Bootstrap and the base twerk theme.
-
-
-
-
-
-// Put your own mixins in this file
-@import 'lib/mixins';
-
-// Import assets
-// @import 'assets/pageelements';
-
-// Basic layout styling
-// @import 'base/layout';
-// @import 'base/header';
-// @import 'base/footer';
-// @import 'base/navigation';
-// @import 'base/sidebars';
-// @import 'base/tabs';
-
-
 ///
 /// Base styles
-///
-/// WARNING: Do NOT include this file in other .scss files. It WILL duplicate output
+/// Does imports from Bootstrap, Twerk parent theme and your custom styles that you MUST add
+/// yourself manually after `Custom CSS-generating output`.
 ///
 
-// Import config.
-@import 'config/variables';
+// Libraries
+@import '../../../contrib/twerk/sass/mixins';
+@import '00-lib/fonts';
+@import '00-lib/mixins';
+
+// Project configuration
+@import '01-config/colors';
+@import '01-config/variables';
 
 // Bootstrap CSS-generating output
 @import '../node_modules/bootstrap/scss/root';
@@ -36,12 +21,34 @@
 @import '../node_modules/bootstrap/scss/code';
 
 // Font Awesome icons
-// $fa-font-path: '~font-awesome/fonts/';
+$fa-font-path: '../node_modules/font-awesome/fonts/';
 @import '../node_modules/font-awesome/scss/font-awesome';
 
 // Custom CSS-generating output
-// @import 'printing/type';
-// @import 'printing/forms';
-// @import 'printing/tables';
-// @import 'printing/transitions';
-// @import 'printing/html-elements';
+
+// Base styles
+@import '02-base/transitions';
+@import '02-base/typography';
+@import '02-base/html-elements';
+@import '02-base/buttons';
+@import '02-base/forms';
+@import '02-base/tables';
+
+// Basic layout styling
+@import '02-base/layout';
+// @import '02-base/header';
+// @import '02-base/footer';
+// @import '02-base/navigation';
+// @import '02-base/sidebars';
+// @import '02-base/tabs';
+
+// CMS / Drupal base styles
+@import '02-base/cards';
+@import '02-base/lists';
+@import '02-base/modules';
+
+// Entities
+@import '03-entities/article';
+
+// Pages
+@import '04-pages/home';

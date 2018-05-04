@@ -1,0 +1,22 @@
+// Bootstrap override variables go here.
+// See available vars in ../node_modules/bootstrap/scss/_variables.scss, i.e.
+//$font-family-sans-serif
+//$font-weight-light
+$h1-font-size: 46px;
+$h2-font-size: 26px;
+$h3-font-size: 22px;
+$h4-font-size: 22px;
+$h5-font-size: 18px;
+$h6-font-size: 18px;
+@import '../node_modules/bootstrap/scss/type';
+
+// Custom type rules here
+
+//
+// Headings
+//
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  font-family: $font-family-title;
+  text-transform: uppercase;
+}

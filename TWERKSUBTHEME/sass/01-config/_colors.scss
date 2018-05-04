@@ -1,0 +1,18 @@
+// Custom colors
+
+// Bootstrap overrides
+// Add colors to $theme-colors var here. Find other vars to override at ~bootstrap/scss/_variables.scss
+// Be sure to add new colors in quotes.
+
+$blue: #2711BA !default;
+$pink: #FF8EEA !default;
+$pink-dark: #D930BA !default;
+
+$light: #EDECE7 !default;
+
+$theme-colors: (
+  'primary': $blue, // Overrides the Bootstrap color
+  'secondary': $pink, // Overrides the Bootstrap color
+  'secondary-dark': $pink-dark, // New color!
+  'light': $light, // Overrides the Bootstrap color
+);

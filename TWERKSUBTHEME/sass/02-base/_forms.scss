@@ -1,0 +1,13 @@
+///
+/// General forms & form elements styles
+///
+/// Create separate files for styles related to a specific form (_form--MODULE_NAME.scss)
+///
+
+// Bootstrap override variables go here.
+// See available vars in ../node_modules/bootstrap/scss/_variables.scss, i.e.
+//$input-bg
+//$form-text-margin-top
+@import '../node_modules/bootstrap/scss/forms';
+
+// Custom forms rules go here

@@ -12,7 +12,7 @@ var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
-var uglifycss = require('gulp-uglifycss');
+var cleancss = require('gulp-clean-css');
 var stylelint = require('gulp-stylelint');
 
 /**
@@ -27,7 +27,7 @@ var stylelint = require('gulp-stylelint');
      .pipe(eslint.failOnError())
      .pipe(sourcemaps.init())
        .pipe(uglify())
-     .pipe(sourcemaps.write())
+     .pipe(sourcemaps.write('.'))
      .pipe(gulp.dest('dist/js'));
  });
 
@@ -48,11 +48,11 @@ gulp.task('css', function () {
         {formatter: 'string', console: true}
       ]
     }))
-    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.init())
+    .pipe(sass.sync({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(sourcemaps.write())
-    .pipe(uglifycss())
+    .pipe(cleancss())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/css'));
 });
 

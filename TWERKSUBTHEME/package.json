@@ -16,7 +16,7 @@
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
-    "autoprefixer": "^8.3.0",
+    "autoprefixer": "^8.4.1",
     "css-mqpacker": "^6.0.2",
     "del": "^3.0.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -24,13 +24,13 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "gulp": "^4.0.0",
+    "gulp-clean-css": "^3.9.4",
     "gulp-eslint": "^4.0.2",
     "gulp-postcss": "^7.0.1",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylelint": "^7.0.0",
     "gulp-uglify": "^3.0.0",
-    "gulp-uglifycss": "^1.0.9",
     "stylelint": "^9.2.0",
     "stylelint-scss": "^3.0.0"
   }

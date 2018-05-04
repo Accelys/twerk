@@ -65,11 +65,18 @@ gulp.task('clean', function () {
   return del(['dist/css/*', 'dist/js/*']);
 });
 
+
+/**
+ * @task watch
+ * Watch files and do stuff.
+ */
+gulp.task('watch', gulp.series('clean', gulp.parallel('css', 'js'), function () {
+  gulp.watch('sass/**/*.+(scss|sass)', gulp.task('css'));
+  gulp.watch('js/**/*.js', gulp.task('js'));
+}));
+
 /**
  * @task default
  * Watch files and do stuff.
  */
-gulp.task('default', gulp.series('clean', gulp.parallel('css', 'js'), function () {
-  gulp.watch('sass/**/*.+(scss|sass)', gulp.parallel('css'));
-  gulp.watch('js/**/*.js', gulp.parallel('js'));
-}));
+gulp.task('default', gulp.task('watch'));

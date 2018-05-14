@@ -75,6 +75,14 @@ gulp.task('watch', gulp.series('clean', gulp.parallel('css', 'js'), function () 
   gulp.watch('js/**/*.js', gulp.task('js'));
 }));
 
+
+/**
+ * @task build
+ * Compiles stuff.
+ */
+gulp.task('build', gulp.series('clean', gulp.parallel('css', 'js')));
+
+
 /**
  * @task default
  * Watch files and do stuff.

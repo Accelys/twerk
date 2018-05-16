@@ -5,3 +5,13 @@ main:
       dist/css/TWERKSUBTHEME.css: {}
   js:
     dist/js/TWERKSUBTHEME.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+
+bootstrap:
+  version: 4.0
+  js:
+    node_modules/bootstrap/dist/js/bootstrap.min.js: {}
+  dependencies:
+    - core/jquery

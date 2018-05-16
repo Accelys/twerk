@@ -6,6 +6,7 @@ base theme: twerk
 
 libraries:
   - TWERKSUBTHEME/main
+  - TWERKSUBTHEME/bootstrap
 
 regions:
   header: Header

@@ -14,22 +14,64 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var cleancss = require('gulp-clean-css');
 var stylelint = require('gulp-stylelint');
+var iconfont = require('gulp-iconfont');
+var consolidate = require('gulp-consolidate');
+var rename = require('gulp-rename');
 
 /**
  * @task js
  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code
  * UglifyJS is a JavaScript parser, minifier, compressor and beautifier toolkit.
  */
- gulp.task('js', function() {
-   return gulp.src('js/**/*.js')
-     .pipe(eslint())
-     .pipe(eslint.format())
-     .pipe(eslint.failOnError())
-     .pipe(sourcemaps.init())
-       .pipe(uglify())
-     .pipe(sourcemaps.write('.'))
-     .pipe(gulp.dest('dist/js'));
- });
+gulp.task('js', function() {
+  return gulp.src('js/**/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError())
+    .pipe(sourcemaps.init())
+      .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('dist/js'));
+});
+
+
+/**
+ * @task js
+ * SVG icons to font.
+ */
+var runTimestamp = Math.round(Date.now()/1000);
+var fontName = 'TWERKSUBTHEME-iconfont';
+gulp.task('iconfont', function(){
+  return gulp.src(['icons/*.svg'])
+    .pipe(iconfont({
+      normalize: true,
+      fontHeight: 1024,
+      fontName: fontName, // required
+      prependUnicode: true, // recommended option
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+      timestamp: runTimestamp, // recommended to get consistent builds when watching files
+    }))
+    .on('glyphs', function(glyphs, options) {
+      console.log(glyphs);
+      gulp.src('icons/iconfont_template.css')
+        .pipe(consolidate('lodash', {
+          glyphs: glyphs.map(mapGlyphs),
+          fontName: fontName,
+          fontPath: '../fonts/',
+          className: 'icon'
+        }))
+        .pipe(rename({ basename: fontName }))
+        .pipe(gulp.dest('dist/css'));
+    })
+    .pipe(gulp.dest('dist/fonts'));
+});
+
+/**
+ * This is needed for mapping glyphs and codepoints.
+ */
+function mapGlyphs (glyph) {
+  return { name: glyph.name, codepoint: glyph.unicode[0].charCodeAt(0) }
+}
 
 
 /**
@@ -62,7 +104,7 @@ gulp.task('css', function () {
  * Clean the dist folder.
  */
 gulp.task('clean', function () {
-  return del(['dist/css/*', 'dist/js/*']);
+  return del(['dist/css/*', 'dist/js/*', 'dist/fonts/*']);
 });
 
 
@@ -70,7 +112,8 @@ gulp.task('clean', function () {
  * @task watch
  * Watch files and do stuff.
  */
-gulp.task('watch', gulp.series('clean', gulp.parallel('css', 'js'), function () {
+gulp.task('watch', gulp.series('clean', gulp.parallel('iconfont', 'css', 'js'), function () {
+  gulp.watch('icons/**/*.svg', gulp.task('iconfont'));
   gulp.watch('sass/**/*.+(scss|sass)', gulp.task('css'));
   gulp.watch('js/**/*.js', gulp.task('js'));
 }));
@@ -80,7 +123,7 @@ gulp.task('watch', gulp.series('clean', gulp.parallel('css', 'js'), function () 
  * @task build
  * Compiles stuff.
  */
-gulp.task('build', gulp.series('clean', gulp.parallel('css', 'js')));
+gulp.task('build', gulp.series('clean', gulp.parallel('iconfont', 'css', 'js')));
 
 
 /**

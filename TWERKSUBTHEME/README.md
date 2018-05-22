@@ -86,3 +86,8 @@ So it is important to install the Twerk base theme in the folder `/themes/contri
   for installing and use `gulp` for running the watcher. We've added some nice features:
   * SASS compiling, including source maps and autoprefixer;
   * ES Lint and uglify;
+
+## Favicons / Apple touch icons
+
+Links to the icons are added by a preprocess function in Twerk parent theme (@see twerk.theme)
+You should replace the default sub-theme icons by custom ones using the online generator https://iconifier.net/

@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * @file
+ * Twerk theme implementation file.
+ */
+
+
+/**
+ * Implements hook_theme_page_attachments_alter().
+ */
+function twerk_page_attachments_alter(array &$page) {
+  $apple_touch_icon = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon, 'apple_touch_icon'];
+
+  $apple_touch_icon57 = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon-57x57.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+      'sizes' => '57x57',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon57, 'apple_touch_icon57'];
+
+  $apple_touch_icon72 = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon-72x72.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+      'sizes' => '72x72',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon72, 'apple_touch_icon72'];
+
+  $apple_touch_icon76 = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon-76x76.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+      'sizes' => '76x76',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon76, 'apple_touch_icon76'];
+
+  $apple_touch_icon114 = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon-114x114.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+      'sizes' => '114x114',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon114, 'apple_touch_icon114'];
+
+  $apple_touch_icon120 = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon-120x120.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+      'sizes' => '120x120',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon120, 'apple_touch_icon120'];
+
+  $apple_touch_icon144 = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon-144x144.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+      'sizes' => '144x144',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon144, 'apple_touch_icon144'];
+
+  $apple_touch_icon152 = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon-152x152.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+      'sizes' => '152x152',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon152, 'apple_touch_icon152'];
+
+  $apple_touch_icon180 = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'href' => '/' . \Drupal::theme()->getActiveTheme()->getPath().'/apple-touch-icon-180x180.png',
+      'rel' => 'apple-touch-icon',
+      'type' => 'image/png',
+      'sizes' => '180x180',
+    ),
+  );
+  $page['#attached']['html_head'][] = [$apple_touch_icon180, 'apple_touch_icon180'];
+}

@@ -62,6 +62,15 @@ gulp.task('iconfont', function(){
         }))
         .pipe(rename({ basename: fontName }))
         .pipe(gulp.dest('dist/css'));
+      gulp.src('icons/iconfont_template.html')
+        .pipe(consolidate('lodash', {
+          glyphs: glyphs.map(mapGlyphs),
+          fontName: fontName,
+          fontPath: '../fonts/',
+          className: 'icon'
+        }))
+        .pipe(rename({ basename: fontName }))
+        .pipe(gulp.dest('dist'));
     })
     .pipe(gulp.dest('dist/fonts'));
 });

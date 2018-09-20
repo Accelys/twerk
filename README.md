@@ -1,4 +1,6 @@
 # Twerk
-A Drupal 8 parent theme to shake the project's booty, based on Classy, starter sub-theme included
+**T**heme that **W**orks **E**ven with **R**aw **K**nowledge in frontend dev via a smart Bootstrap integration.
 
-See the README.md in the TWERKSUBTHEME folder for more info about this theme.
+Twerk is a Drupal 8 base/parent theme with a starter sub-theme included.
+
+--> Please read `TWERKSUBTHEME/README.md` to start using this theme.

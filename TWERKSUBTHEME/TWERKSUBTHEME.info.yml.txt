@@ -1,6 +1,6 @@
 name: Twerk sub-theme
 type: theme
-description: "A Twerk sub-theme to shake the project's booty"
+description: "A Twerk sub-theme"
 core: 8.x
 base theme: twerk
 

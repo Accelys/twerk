@@ -1,6 +1,6 @@
 name: Twerk
 type: theme
-description: "A parent theme to shake the project's booty, based on Classy, starter child theme included"
+description: "Theme that Works Even with Raw Knowledge in frontend dev via a smart Bootstrap integration."
 core: 8.x
 base theme: classy
 

@@ -17,6 +17,7 @@ var stylelint = require('gulp-stylelint');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 var rename = require('gulp-rename');
+var plumber = require('gulp-plumber');
 
 /**
  * @task js
@@ -25,6 +26,7 @@ var rename = require('gulp-rename');
  */
 gulp.task('js', function() {
   return gulp.src('js/**/*.js')
+    .pipe(plumber())
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failOnError())
@@ -93,6 +95,7 @@ gulp.task('css', function () {
     cssMqpacker()
   ];
   return gulp.src('sass/**/*.s+(a|c)ss')
+    .pipe(plumber())
     .pipe(stylelint({
       failAfterError: true,
       reporters: [

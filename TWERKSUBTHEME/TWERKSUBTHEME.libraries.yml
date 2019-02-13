@@ -7,6 +7,7 @@ main:
   js:
     dist/js/TWERKSUBTHEME.js: {}
   dependencies:
+    - core/drupal
     - core/jquery
     - core/jquery.once
 

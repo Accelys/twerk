@@ -14,8 +14,10 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var cleancss = require('gulp-clean-css');
 var stylelint = require('gulp-stylelint');
-var iconfont = require('gulp-iconfont');
-var consolidate = require('gulp-consolidate');
+var svgstore = require('gulp-svgstore');
+var svgmin = require('gulp-svgmin');
+var path = require('path');
+var inject = require('gulp-inject');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 
@@ -38,51 +40,32 @@ gulp.task('js', function() {
 
 
 /**
- * @task js
- * SVG icons to font.
+ * @task svgstore
+ * Combine svg files into one with <symbol> elements
  */
-var runTimestamp = Math.round(Date.now()/1000);
-var fontName = 'TWERKSUBTHEME-iconfont';
-gulp.task('iconfont', function(){
-  return gulp.src(['icons/*.svg'])
-    .pipe(iconfont({
-      normalize: true,
-      fontHeight: 1024,
-      fontName: fontName, // required
-      prependUnicode: true, // recommended option
-      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
-      timestamp: runTimestamp, // recommended to get consistent builds when watching files
-    }))
-    .on('glyphs', function(glyphs, options) {
-      console.log(glyphs);
-      gulp.src('icons/iconfont_template.css')
-        .pipe(consolidate('lodash', {
-          glyphs: glyphs.map(mapGlyphs),
-          fontName: fontName,
-          fontPath: '../fonts/',
-          className: 'icon'
-        }))
-        .pipe(rename({ basename: fontName }))
-        .pipe(gulp.dest('dist/css'));
-      gulp.src('icons/iconfont_template.html')
-        .pipe(consolidate('lodash', {
-          glyphs: glyphs.map(mapGlyphs),
-          fontName: fontName,
-          fontPath: '../fonts/',
-          className: 'icon'
-        }))
-        .pipe(rename({ basename: fontName }))
-        .pipe(gulp.dest('dist'));
-    })
-    .pipe(gulp.dest('dist/fonts'));
-});
+gulp.task('svgstore', function () {
+  var svgs = gulp
+  .src(['icons/*.svg'])
+  .pipe(svgmin({
+    plugins: [
+      {removeDesc: true},
+      {cleanupIDs: true},
+      {mergePaths: false}
+    ]
+  }))
+  .pipe(rename({prefix: 'icon-'}))
+  .pipe(svgstore({inlineSvg: true}))
+  .pipe(gulp.dest('dist'));
 
-/**
- * This is needed for mapping glyphs and codepoints.
- */
-function mapGlyphs (glyph) {
-  return { name: glyph.name, codepoint: glyph.unicode[0].charCodeAt(0) }
-}
+  function fileContents(filePath, file) {
+    return file.contents.toString();
+  }
+
+  return gulp
+    .src('icons/icons.html')
+    .pipe(inject(svgs, { transform: fileContents }))
+    .pipe(gulp.dest('dist'));
+});
 
 
 /**
@@ -116,7 +99,7 @@ gulp.task('css', function () {
  * Clean the dist folder.
  */
 gulp.task('clean', function () {
-  return del(['dist/css/*', 'dist/js/*', 'dist/fonts/*']);
+  return del(['dist/css/*', 'dist/js/*', 'dist/*']);
 });
 
 
@@ -124,8 +107,8 @@ gulp.task('clean', function () {
  * @task watch
  * Watch files and do stuff.
  */
-gulp.task('watch', gulp.series('clean', gulp.parallel('iconfont', 'css', 'js'), function () {
-  gulp.watch('icons/**/*.svg', gulp.task('iconfont'));
+gulp.task('watch', gulp.series('clean', gulp.parallel('svgstore', 'css', 'js'), function () {
+  gulp.watch('icons/**/*.svg', gulp.task('svgstore'));
   gulp.watch('sass/**/*.+(scss|sass)', gulp.task('css'));
   gulp.watch('js/**/*.js', gulp.task('js'));
 }));
@@ -135,7 +118,7 @@ gulp.task('watch', gulp.series('clean', gulp.parallel('iconfont', 'css', 'js'), 
  * @task build
  * Compiles stuff.
  */
-gulp.task('build', gulp.series('clean', gulp.parallel('iconfont', 'css', 'js')));
+gulp.task('build', gulp.series('clean', gulp.parallel('svgstore', 'css', 'js')));
 
 
 /**

@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Icons</title>
+    <link rel="stylesheet" href="css/accelys_2018.css">
+    <style>
+      body { background: #f7f7f7 }
+      body > h1 { margin: 1em 0 }
+      .svgicons { padding: 0; text-align: center }
+      .svgicons > li { display: inline-block; margin: .3em .2em; width: 25em; background: #fff; border-radius: .5em; position: relative }
+      .svgicons > li .s { display: block; margin-top: .1em; line-height: 0 }
+      .svgicons > li > i > span { position: absolute; top: 0; left: 0; text-align: center; width: 100%; color: rgba(0,0,0,0); line-height: 1em }
+      .svgicon-name { color: #666 }
+      .svgicon-markup {
+        font-size: 14px;
+        color: #D930BA;
+        font-family: monospace;
+        display: block;
+      }
+      .svgicon-using-twig-plugin {
+        font-size: 14px;
+        color: #2711BA;
+        font-family: monospace;
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="m-5">
+    <div><a class="btn btn-primary" href="../styleguide.html">< Back to styleguide</a></div>
+    <h1 class="display-4">SVG store</h1>
+
+    <ul class="svgicons"><% _.each(svgicons, function(svgicon) { %>
+      <li>
+        <svg class='icon'>
+          <use xlink:href='#<%= svgicon.name %>'/>
+        </svg>
+        <p>
+          <span class="svgicon-name"><%= svgicon.name %></span>
+          <span class="svgicon-markup">&lt;svg class='icon'&gt;&lt;use xlink:href='#<%= svgicon.name %>"/&gt;&lt;/svg&gt;</span>
+          <span class="svgicon-using-twig-plugin">{{ icon('<%= svgicon.name %>', 'Icon : <%= svgicon.name %>') }}</span>
+        </p>
+      </li><% }); %>
+    </ul>
+
+    <div class="svgstore visually-hidden">
+      <!-- inject:svg --><!-- endinject -->
+    </div>
+
+  </body>
+</html>

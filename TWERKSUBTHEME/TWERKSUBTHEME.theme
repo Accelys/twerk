@@ -3,3 +3,15 @@
  * @file
  * TWERKSUBTHEME theme implementation file.
  */
+
+function TWERKSUBTHEME_preprocess_html(&$variables) {
+  // Get the contents of the SVG store.
+  $icons = file_get_contents(\Drupal::theme()->getActiveTheme()->getPath() . '/dist/icons.svg');
+
+  // Add a new render array to page_bottom so the icons
+  // get added to the page.
+  $variables['page_bottom']['icons'] = array(
+    '#type' => 'inline_template',
+    '#template' => '<span class="svgstore hidden visually-hidden">' . $icons . '</span>',
+  );
+}

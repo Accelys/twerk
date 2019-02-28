@@ -1,9 +1,22 @@
 {
-  "extends": ["eslint:recommended", "airbnb"],
+  "extends": ["eslint:recommended"],
+  "root": true,
   "env": {
     "es6": true,
     "browser": true,
     "jquery": true
+  },
+  "globals": {
+    "Drupal": true,
+    "drupalSettings": true,
+    "drupalTranslations": true,
+    "domready": true,
+    "jQuery": true,
+    "_": true,
+    "matchMedia": true,
+    "Backbone": true,
+    "Modernizr": true,
+    "CKEDITOR": true
   },
   "rules": {
     "no-console": 0

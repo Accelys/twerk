@@ -1,3 +1,10 @@
 // Global styling
 
+// Imports
 @import 'mixins';
+
+
+// Twerk core styles
+.full-width {
+  @include full-width;
+}

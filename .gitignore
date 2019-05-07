@@ -3,4 +3,4 @@ node_modules
 vendor
 
 # SASS compilation cache
-*/.sass-cache
+.sass-cache

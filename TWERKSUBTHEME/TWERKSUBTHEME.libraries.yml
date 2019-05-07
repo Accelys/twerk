@@ -3,7 +3,6 @@ main:
   css:
     base:
       dist/css/TWERKSUBTHEME.css: {}
-      #dist/css/mustela_twerk-iconfont.css: {}
   js:
     dist/js/TWERKSUBTHEME.js: {}
   dependencies:

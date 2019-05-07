@@ -1,0 +1,80 @@
+.icon {
+  width: 80px;
+  height: 80px;
+  &.icon-10 {
+    width: 10px;
+    height: 10px;
+  }
+  &.icon-20 {
+    width: 20px;
+    height: 20px;
+  }
+  &.icon-25 {
+    width: 25px;
+    height: 25px;
+  }
+  &.icon-30 {
+    width: 30px;
+    height: 30px;
+  }
+  &.icon-40 {
+    width: 40px;
+    height: 40px;
+  }
+  &.icon-50 {
+    width: 50px;
+    height: 50px;
+  }
+  &.icon-60 {
+    width: 60px;
+    height: 60px;
+  }
+  &.icon-70 {
+    width: 70px;
+    height: 70px;
+  }
+  &.icon-90 {
+    width: 90px;
+    height: 90px;
+  }
+  &.icon-100 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+// Provide stroke color classes from theme colors
+@each $color, $value in $theme-colors {
+  .stroke-#{$color} * {
+    stroke: $value;
+  }
+  a:hover .stroke-#{$color} * {
+    stroke: darken($value, 30);
+  }
+}
+
+.stroke-white * {
+  stroke: white;
+}
+a:hover .stroke-white * {
+  stroke: lightgrey;
+}
+
+
+// Provide fill color classes from theme colors
+@each $color, $value in $theme-colors {
+  .fill-#{$color} * {
+    fill: $value;
+  }
+  a:hover .fill-#{$color} * {
+    fill: darken($value, 30);
+  }
+}
+
+.fill-white * {
+  fill: white;
+}
+a:hover .fill-white * {
+  fill: lightgrey;
+}

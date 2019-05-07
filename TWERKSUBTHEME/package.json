@@ -1,10 +1,10 @@
 {
-  "name": "accelys_2018",
+  "name": "TWERKSUBTHEME",
   "version": "8.0.0",
-  "description": "accelys_2018, a sub-theme of Twerk",
+  "description": "TWERKSUBTHEME, a sub-theme of Twerk",
   "author": {
-    "name": "Accelys",
-    "url": "https://github.com/accelys/"
+    "name": "Cedric Albrecht",
+    "url": "https://github.com/cedricalb/"
   },
   "main": "gulpfile.js",
   "license": "GPL-2.0",
@@ -16,6 +16,8 @@
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "autoprefixer": "^8.4.1",
     "css-mqpacker": "^6.0.2",
     "del": "^3.0.0",
@@ -24,6 +26,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^3.9.4",
     "gulp-eslint": "^4.0.2",
     "gulp-iconfont": "^9.1.0",
@@ -36,7 +39,7 @@
     "gulp-stylelint": "^7.0.0",
     "gulp-svgmin": "^2.1.0",
     "gulp-svgstore": "^7.0.1",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^1.0.4",
     "lodash": "^4.17.10",
     "stylelint": "^9.2.0",
     "stylelint-scss": "^3.0.0"

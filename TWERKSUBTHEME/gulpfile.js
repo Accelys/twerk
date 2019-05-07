@@ -3,23 +3,24 @@
  * Gulpfile for fortytwo.
  */
 
-var autoprefixer = require('autoprefixer');
-var cssMqpacker = require('css-mqpacker');
-var del = require('del');
-var eslint = require('gulp-eslint');
-var gulp = require('gulp');
-var postcss = require('gulp-postcss');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
-var cleancss = require('gulp-clean-css');
-var stylelint = require('gulp-stylelint');
-var svgstore = require('gulp-svgstore');
-var svgmin = require('gulp-svgmin');
-var path = require('path');
-var inject = require('gulp-inject');
-var rename = require('gulp-rename');
-var plumber = require('gulp-plumber');
+const autoprefixer = require('autoprefixer');
+const cssMqpacker = require('css-mqpacker');
+const del = require('del');
+const eslint = require('gulp-eslint');
+const gulp = require('gulp');
+const postcss = require('gulp-postcss');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify-es').default;
+const cleancss = require('gulp-clean-css');
+const stylelint = require('gulp-stylelint');
+const svgstore = require('gulp-svgstore');
+const svgmin = require('gulp-svgmin');
+const path = require('path');
+const inject = require('gulp-inject');
+const rename = require('gulp-rename');
+const plumber = require('gulp-plumber');
+const babel = require('gulp-babel');
 
 /**
  * @task js
@@ -33,7 +34,10 @@ gulp.task('js', function() {
     .pipe(eslint.format())
     .pipe(eslint.failOnError())
     .pipe(sourcemaps.init())
-      .pipe(uglify())
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
+    .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/js'));
 });
